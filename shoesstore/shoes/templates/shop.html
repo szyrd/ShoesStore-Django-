@@ -1,0 +1,115 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <section id="home-section" class="hero">
+		  <div class="home-slider js-fullheight owl-carousel">
+	      <div class="slider-item js-fullheight">
+	      	<div class="overlay"></div>
+	        <div class="container-fluid p-0">
+	          <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third order-md-last img js-fullheight" style="background-image:url({% static 'images/summer.jpg'%});">
+	          	</div>
+		          <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading">Bayeli</span>
+		          		<div class="horizontal">
+		          			<h3 class="vr" style="background-image: url({% static 'images/bg_6.jpg'%});">est 2001</h3>
+				            <h1 class="mb-4 mt-3">Летняя<br><span></span>коллекция</h1>
+				            
+				            
+				           
+				          </div>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+
+       
+	      <div class="slider-item js-fullheight">
+	      	<div class="overlay"></div>
+	        <div class="container-fluid p-0">
+	          <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third order-md-last img js-fullheight" style="background-image:url({% static 'images/winter.jpg'%});">
+	          	</div>
+		          <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading">Bayeli</span>
+		          		<div class="horizontal">
+		          			<h3 class="vr" style="background-image: url({% static 'images/bg_6.jpg'%});">est 2001</h3>
+				            <h1 class="mb-4 mt-3">Зимняя<span> </span>коллеккция </h1>
+				            
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+	    </div>
+                       <div class="home-slider js-fullheight owl-carousel">
+	      <div class="slider-item js-fullheight">
+	      	<div class="overlay"></div>
+	        <div class="container-fluid p-0">
+	          <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third order-md-last img js-fullheight" style="background-image:url({% static 'images/autspr.jpg'%});">
+	          	</div>
+		          <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading">Bayeli</span>
+		          		<div class="horizontal">
+		          			<h3 class="vr" style="background-image: url({% static 'images/bg_6.jpg'%});">est 2001</h3>
+				            <h1 class="mb-4 mt-3">Осень/Весна<br><span></span>коллекция</h1>
+				            
+				            
+				           
+				          </div>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+    </section>
+
+
+    <section class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-8 col-lg-10 order-md-last">
+    				<div class="row">
+		    			{% for item in object_list %}
+		    			<div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
+		    				<div class="product">
+		    					<a href="#" class="img-prod"><img class="img-fluid" src="{{ item.image.url }}" alt="Colorlib Template">
+		    						<div class="overlay"></div>
+		    					</a>
+		    					<div class="text py-3 px-3">
+		    						<h3><a href="{{ item.get_absolute_url }}">{{ item.title}}</a></h3>
+		    						<div class="d-flex">
+		    							<div class="pricing">
+											<p class="price"><a href="/shop">{{ item.get_category_display }}</a></p>
+				    						<p class="price"><span>$
+												{% if item.discount_price %}
+												{{ item.discount_price}}
+												{% else %}
+												{{ item.price }}
+												{% endif %}
+											</span></p>
+				    					</div>
+										<p class="bottom-area d-flex px-3">
+
+    							<a href="{{ item.get_absolute_url }}" class="buy-now text-center py-2">View product<span><i class="ion-ios-cart ml-1"></i></span></a>
+    						</p>
+
+			    					</div>
+
+		    					</div>
+		    				</div>
+		    			</div>
+						{% endfor %}
+		    		</div>
+
+		    	</div>
+			</div>
+		</div>
+		    
+    </section>
+{% endblock %}
